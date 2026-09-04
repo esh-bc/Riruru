@@ -13,7 +13,7 @@ services:
     buildCommand: pip install -r requirements.txt
 
     # Start — runs bot + webserver together
-    startCommand: python riruru_final.py
+    startCommand: python riruru.py
 
     # Render auto-sets PORT — webserver.py reads it
     envVars:
