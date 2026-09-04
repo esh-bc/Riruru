@@ -829,7 +829,7 @@ async def cmd_start(_, msg: Message):
             "🛡️ ɢʀᴏᴜᴩ ᴍᴏᴅᴇʀᴀᴛɪᴏɴ\n\n"
             "━━━━━━━━━━━━━━━━━━━━━\n"
             "🍡 ᴛᴀᴩ **ʜᴇʟᴩ** ᴛᴏ ꜱᴇᴇ ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ~\n"
-            "_ᴍᴀᴅᴇ ᴡɪᴛʜ 💕 ʙʏ @iam_esh_"
+            "_ᴍᴀᴅᴇ ᴡɪᴛʜ 💕 ʙʏ @iam_esh"
         )
         try:
             await msg.reply(text, reply_markup=start_keyboard(BOT_USERNAME or "riruru_bot"))
