@@ -1,0 +1,20 @@
+# ╔══════════════════════════════════════════════════════╗
+# ║   🌸 Riruru Bot — requirements.txt                  ║
+# ║   Install: pip install -r requirements.txt           ║
+# ╚══════════════════════════════════════════════════════╝
+
+# ── Telegram ───────────────────────────────────────────
+# Kittygram = Pyrogram fork with Bot API 9.4+ coloured buttons
+# If kittygram fails, bot auto-falls back to pyrogram
+kittygram>=1.0.0
+pyrogram>=2.0.106
+tgcrypto>=1.2.5
+
+# ── AI / Groq ──────────────────────────────────────────
+groq>=0.30.0
+
+# ── HTTP client (Turso + image gen + webhook cleanup) ──
+aiohttp>=3.10.0
+
+# ── Local SQLite fallback (if Turso is off) ────────────
+aiosqlite>=0.20.0
