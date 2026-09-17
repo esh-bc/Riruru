@@ -15,6 +15,22 @@ REPLIT: credentials come from Secrets (env vars)
 """
 
 import os
+# Auto-load local .env (gitignored) so `python3 riruru.py` just works.
+# Real env vars always win — .env never overrides them.
+try:
+    _env_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    if os.path.exists(_env_path):
+        with open(_env_path) as _ef:
+            for _line in _ef:
+                _line = _line.strip()
+                if not _line or _line.startswith("#") or "=" not in _line:
+                    continue
+                _k, _v = _line.split("=", 1)
+                _k, _v = _k.strip(), _v.strip().strip("'\"")
+                if _k and _k not in os.environ:
+                    os.environ[_k] = _v
+except Exception:
+    pass
 from webserver import start_webserver
 import asyncio
 import aiosqlite
@@ -391,13 +407,19 @@ async def _adm_edit(cb, text, kb=None):
         pass
 
 # ─── VALIDATION ──────────────────────────────────────────────────
-if API_ID == 0 or not API_HASH or not BOT_TOKEN or not GROQ_API_KEYS:
+if API_ID == 0 or not API_HASH or not BOT_TOKEN:
     print("=" * 60)
     print("❌  ERROR: Credentials fill nahi ki hain!")
-    print("   API_ID, API_HASH, BOT_TOKEN, GROQ_API_KEY — sab chahiye")
+    print("   API_ID, API_HASH, BOT_TOKEN — sab chahiye")
     print("   Upar CONFIG section mein bharo.")
     print("=" * 60)
     raise SystemExit(1)
+if not GROQ_API_KEYS:
+    # Optional at boot — admin can /addkey after deploy, pool rebuilds live.
+    print("=" * 60)
+    print("⚠️  WARNING: No GROQ_API_KEY set — AI replies stay off")
+    print("   until you add keys via /adminpanel → 🔑 or /addkey.")
+    print("=" * 60)
 
 # ─── FANCY FONT ENGINE ───────────────────────────────────────────
 _SC = {
