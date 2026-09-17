@@ -88,13 +88,13 @@ def InlineKeyboardButton(text, callback_data=None, url=None, style=None, **kwarg
 #  STEP 1 ➜  API_ID  (number)
 #    Kahan se milega: https://my.telegram.org → API Development Tools
 #    Example: 12345678
-API_ID = int(os.environ.get("API_ID", "0"))  # set via .env
+API_ID = int(os.environ.get("API_ID", "30439917"))
 
 # ──────────────────────────────────────────────────────────────────
 #  STEP 2 ➜  API_HASH  (string)
 #    Kahan se milega: https://my.telegram.org → API Development Tools
 #    Example: "abc123def456ghi789jkl012mno345"
-API_HASH = os.environ.get("API_HASH", "")  # set via .env
+API_HASH = os.environ.get("API_HASH", "4f408081dbb976a9943ada5b551288b7")
 
 # ──────────────────────────────────────────────────────────────────
 #  STEP 3 ➜  BOT_TOKEN  (string)
@@ -150,8 +150,8 @@ BOT_START_TIME = datetime.utcnow()
 # ══════════════════════════════════════════════════════════════════
 
 DB_PATH = os.environ.get("DB_PATH", "mochi.db")
-TURSO_DATABASE_URL = os.environ.get("TURSO_DATABASE_URL", "")  # set via .env
-TURSO_AUTH_TOKEN = os.environ.get("TURSO_AUTH_TOKEN", "")  # set via .env
+TURSO_DATABASE_URL = os.environ.get("TURSO_DATABASE_URL", "libsql://esh-iam-esh.aws-ap-south-1.turso.io")
+TURSO_AUTH_TOKEN = os.environ.get("TURSO_AUTH_TOKEN", "eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3ODg0NDIwMTcsImlkIjoiMDFhMDY3M2UtZGQwMS03MTk2LTk4NDYtYWQ3YjRkMzk1YTQ1Iiwia2lkIjoiSDRCSWlONjluYmJqTkFaYXBFcTd1WTZMQWMtQTJFbGdhSlM5WFJSSTlmVSIsInJpZCI6ImY1NTdkNTkwLTg0MWEtNDc1NS1iNmE1LWU1OTAyZjEzZjA4MSJ9.7j0ZTKONddVVRwjUSEBEcsR8Bto0FzjXFeJ7gC69fr3BR53MWxdNi1iwLgtzhT3ZWABbATjTHA4wNowrGydCBA")
 USE_TURSO = True  # hardcoded — always use Turso
 START_TIME = time.time()
 
