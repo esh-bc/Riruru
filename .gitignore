@@ -1,0 +1,11 @@
+# Riruru — never commit secrets or sessions
+__pycache__/
+*.py[cod]
+*.session
+*.session-journal
+mochi.db*
+*.db-journal
+.env
+.venv/
+venv/
+tool-output/
